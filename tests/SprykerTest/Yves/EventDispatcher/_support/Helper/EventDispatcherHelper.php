@@ -34,9 +34,6 @@ class EventDispatcherHelper extends AbstractEventDispatcherHelper
         return $eventDispatcherApplicationPlugin;
     }
 
-    /**
-     * @return \Spryker\Yves\EventDispatcher\EventDispatcherFactory
-     */
     protected function getFactory(): EventDispatcherFactory
     {
         $factoryHelper = $this->getFactoryHelper();

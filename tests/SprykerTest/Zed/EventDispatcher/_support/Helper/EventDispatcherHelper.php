@@ -34,9 +34,6 @@ class EventDispatcherHelper extends AbstractEventDispatcherHelper
         return $eventDispatcherApplicationPlugin;
     }
 
-    /**
-     * @return \Spryker\Zed\EventDispatcher\Communication\EventDispatcherCommunicationFactory
-     */
     protected function getFactory(): EventDispatcherCommunicationFactory
     {
         $communicationHelper = $this->getCommunicationHelper();

@@ -11,10 +11,5 @@ use Spryker\Service\Container\ContainerInterface;
 
 interface EventDispatcherExtenderInterface
 {
-    /**
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     public function extend(ContainerInterface $container): ContainerInterface;
 }

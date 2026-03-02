@@ -113,12 +113,6 @@ class EventDispatcherApplicationPlugin extends AbstractPlugin implements Applica
         return $eventDispatcher;
     }
 
-    /**
-     * @param \Spryker\Shared\EventDispatcher\EventDispatcherInterface $eventDispatcher
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     protected function extendEventDispatcher(EventDispatcherInterface $eventDispatcher, ContainerInterface $container): EventDispatcherInterface
     {
         foreach ($this->getFactory()->getEventDispatcherPlugins() as $eventDispatcherPlugin) {

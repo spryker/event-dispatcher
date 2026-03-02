@@ -47,9 +47,6 @@ class EventDispatcherApplicationPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testEventDispatcherSetNewDispatcher(): void
     {
         //Arrange
@@ -64,9 +61,6 @@ class EventDispatcherApplicationPluginTest extends Unit
         $this->assertInstanceOf(EventDispatcherInterface::class, $container->get(static::SERVICE_DISPATCHER));
     }
 
-    /**
-     * @return void
-     */
     public function testEventDispatcherSetNewTraceableDispatcher(): void
     {
         //Arrange
@@ -82,9 +76,6 @@ class EventDispatcherApplicationPluginTest extends Unit
         $this->assertInstanceOf(TraceableEventDispatcher::class, $container->get(static::SERVICE_DISPATCHER));
     }
 
-    /**
-     * @return void
-     */
     public function testEventDispatcherExtendOldDispatcher(): void
     {
         //Arrange
@@ -102,9 +93,6 @@ class EventDispatcherApplicationPluginTest extends Unit
         $this->assertInstanceOf(EventDispatcherInterface::class, $container->get(static::SERVICE_DISPATCHER));
     }
 
-    /**
-     * @return void
-     */
     public function testNewEventSubscriberHasListenersFromExistingEventDispatcher(): void
     {
         //Arrange
@@ -127,9 +115,6 @@ class EventDispatcherApplicationPluginTest extends Unit
         $this->assertNotEmpty($eventDispatcher->getListeners());
     }
 
-    /**
-     * @return void
-     */
     public function testEventDispatcherCanBeExtendedWithPlugins(): void
     {
         // Arrange
@@ -147,32 +132,20 @@ class EventDispatcherApplicationPluginTest extends Unit
         $this->assertTrue($eventDispatcher->hasListeners('foo'));
     }
 
-    /**
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     protected function createContainer(): ContainerInterface
     {
         return new Container();
     }
 
-    /**
-     * @return \Spryker\Shared\ApplicationExtension\Dependency\Plugin\ApplicationPluginInterface
-     */
     protected function createEventDispatcherApplicationPlugin(): ApplicationPluginInterface
     {
         return new EventDispatcherApplicationPlugin();
     }
 
-    /**
-     * @return \Symfony\Component\EventDispatcher\EventSubscriberInterface
-     */
     protected function createDummyEventSubscriber(): EventSubscriberInterface
     {
         return new class implements EventSubscriberInterface
         {
-            /**
-             * @return array
-             */
             public static function getSubscribedEvents(): array
             {
                 return [
@@ -180,20 +153,12 @@ class EventDispatcherApplicationPluginTest extends Unit
                 ];
             }
 
-            /**
-             * @return void
-             */
             public function onDummyEvent(): void
             {
             }
         };
     }
 
-    /**
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     protected function getEventDispatcher(ContainerInterface $container): EventDispatcherInterface
     {
         return $container->get(static::SERVICE_DISPATCHER);

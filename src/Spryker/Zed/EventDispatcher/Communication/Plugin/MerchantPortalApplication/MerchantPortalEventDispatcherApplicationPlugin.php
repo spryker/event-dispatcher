@@ -17,12 +17,6 @@ use Spryker\Zed\EventDispatcher\Communication\Plugin\Application\EventDispatcher
  */
 class MerchantPortalEventDispatcherApplicationPlugin extends EventDispatcherApplicationPlugin
 {
-    /**
-     * @param \Spryker\Shared\EventDispatcher\EventDispatcherInterface $eventDispatcher
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     protected function extendEventDispatcher(EventDispatcherInterface $eventDispatcher, ContainerInterface $container): EventDispatcherInterface
     {
         foreach ($this->getFactory()->getMerchantPortalEventDispatcherPlugins() as $eventDispatcherPlugin) {

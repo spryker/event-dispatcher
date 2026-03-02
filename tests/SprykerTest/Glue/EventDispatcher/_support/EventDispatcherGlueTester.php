@@ -53,11 +53,6 @@ class EventDispatcherGlueTester extends Actor
      */
     public const FOO_LISTENER = 'foo';
 
-    /**
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     public function provideTraceableEventDispatcher(ContainerInterface $container): ContainerInterface
     {
         $eventDispatcher = new EventDispatcher();
@@ -74,9 +69,6 @@ class EventDispatcherGlueTester extends Actor
         return $container;
     }
 
-    /**
-     * @return \Spryker\Shared\EventDispatcherExtension\Dependency\Plugin\EventDispatcherPluginInterface
-     */
     public function mockEventDispatcherPlugin(): EventDispatcherPluginInterface
     {
         /** @var \Spryker\Shared\EventDispatcherExtension\Dependency\Plugin\EventDispatcherPluginInterface $eventDispatcherPluginMock */
@@ -93,24 +85,15 @@ class EventDispatcherGlueTester extends Actor
         return $eventDispatcherPluginMock;
     }
 
-    /**
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     public function createContainer(): ContainerInterface
     {
         return new Container();
     }
 
-    /**
-     * @return \Symfony\Component\EventDispatcher\EventSubscriberInterface
-     */
     public function createDummyEventSubscriber(): EventSubscriberInterface
     {
         return new class implements EventSubscriberInterface
         {
-            /**
-             * @return array
-             */
             public static function getSubscribedEvents(): array
             {
                 return [
@@ -118,20 +101,12 @@ class EventDispatcherGlueTester extends Actor
                 ];
             }
 
-            /**
-             * @return void
-             */
             public function onDummyEvent(): void
             {
             }
         };
     }
 
-    /**
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     public function getEventDispatcher(ContainerInterface $container): EventDispatcherInterface
     {
         return $container->get(static::SERVICE_DISPATCHER);

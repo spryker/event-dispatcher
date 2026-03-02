@@ -40,11 +40,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_MP_EVENT_DISPATCHER_PLUGINS = 'PLUGINS_MP_EVENT_DISPATCHER_PLUGINS';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = $this->addEventDispatcherPlugins($container);
@@ -56,11 +51,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addEventDispatcherPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_EVENT_DISPATCHER_PLUGINS, function (Container $container) {
@@ -78,11 +68,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addBackofficeEventDispatcherPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_BACKOFFICE_EVENT_DISPATCHER, function (Container $container) {
@@ -100,11 +85,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addBackendGatewayEventDispatcherPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_BACKEND_GATEWAY_EVENT_DISPATCHER_PLUGINS, function (Container $container) {
@@ -122,11 +102,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addBackendApiEventDispatcherPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_BACKEND_API_EVENT_DISPATCHER_PLUGINS, function (Container $container) {
@@ -144,11 +119,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantPortalEventDispatcherPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MP_EVENT_DISPATCHER_PLUGINS, function (Container $container) {

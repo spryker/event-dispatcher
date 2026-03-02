@@ -37,11 +37,6 @@ class EventDispatcherExtender implements EventDispatcherExtenderInterface
         $this->eventDispatcherPlugins = $eventDispatcherPlugins;
     }
 
-    /**
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     public function extend(ContainerInterface $container): ContainerInterface
     {
         $container->set(static::SERVICE_DISPATCHER, function (ContainerInterface $container) {
@@ -53,12 +48,6 @@ class EventDispatcherExtender implements EventDispatcherExtenderInterface
         return $container;
     }
 
-    /**
-     * @param \Spryker\Shared\EventDispatcher\EventDispatcherInterface $eventDispatcher
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     protected function extendEventDispatcher(EventDispatcherInterface $eventDispatcher, ContainerInterface $container): EventDispatcherInterface
     {
         foreach ($this->eventDispatcherPlugins as $eventDispatcherPlugin) {

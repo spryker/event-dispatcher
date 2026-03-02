@@ -32,9 +32,6 @@ class EventDispatcherApplicationPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testProvideSetsNewEventDispatcherWithPlugins(): void
     {
         //Arrange
@@ -49,9 +46,6 @@ class EventDispatcherApplicationPluginTest extends Unit
         $this->assertInstanceOf(EventDispatcherInterface::class, $this->tester->getEventDispatcher($container));
     }
 
-    /**
-     * @return void
-     */
     public function testProvideExtendsOldEventDispatcherWithPlugins(): void
     {
         //Arrange
@@ -69,9 +63,6 @@ class EventDispatcherApplicationPluginTest extends Unit
         $this->assertInstanceOf(EventDispatcherInterface::class, $this->tester->getEventDispatcher($container));
     }
 
-    /**
-     * @return void
-     */
     public function testProvideExtendsEventDispatcherWithPlugins(): void
     {
         // Arrange
@@ -89,9 +80,6 @@ class EventDispatcherApplicationPluginTest extends Unit
         $this->assertTrue($eventDispatcher->hasListeners($this->tester::FOO_LISTENER));
     }
 
-    /**
-     * @return \Spryker\Shared\ApplicationExtension\Dependency\Plugin\ApplicationPluginInterface
-     */
     protected function createBackendEventDispatcherApplicationPlugin(): ApplicationPluginInterface
     {
         return new EventDispatcherApplicationPlugin();

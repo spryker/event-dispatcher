@@ -57,9 +57,6 @@ class EventDispatcherCommunicationFactory extends AbstractCommunicationFactory
         return $this->getProvidedDependency(EventDispatcherDependencyProvider::PLUGINS_MP_EVENT_DISPATCHER_PLUGINS);
     }
 
-    /**
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     public function createEventDispatcher(): EventDispatcherInterface
     {
         return new EventDispatcher();

@@ -11,9 +11,6 @@ use Codeception\Module;
 
 trait EventDispatcherHelperTrait
 {
-    /**
-     * @return \SprykerTest\Zed\EventDispatcher\Helper\EventDispatcherHelper
-     */
     protected function getEventDispatcherHelper(): EventDispatcherHelper
     {
         /** @var \SprykerTest\Zed\EventDispatcher\Helper\EventDispatcherHelper $eventDispatcherHelper */
@@ -22,10 +19,5 @@ trait EventDispatcherHelperTrait
         return $eventDispatcherHelper;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return \Codeception\Module
-     */
     abstract protected function getModule(string $name): Module;
 }

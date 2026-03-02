@@ -61,11 +61,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return $this;
     }
 
-    /**
-     * @param \Codeception\TestInterface $test
-     *
-     * @return void
-     */
     public function _before(TestInterface $test): void
     {
         parent::_before($test);
@@ -85,22 +80,11 @@ abstract class AbstractEventDispatcherHelper extends Module
      */
     abstract protected function getEventDispatcherApplicationPluginStub();
 
-    /**
-     * @param \Codeception\TestInterface $test
-     *
-     * @return void
-     */
     public function _after(TestInterface $test): void
     {
         $this->eventDispatcherPlugins = [];
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param int $requestType
-     *
-     * @return \Symfony\Component\HttpKernel\Event\RequestEvent
-     */
     public function dispatchRequestEvent(Request $request, int $requestType = HttpKernel::MASTER_REQUEST): RequestEvent
     {
         $requestEvent = new RequestEvent($this->getApplicationHelper()->getKernel(), $request, $requestType);
@@ -135,14 +119,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return new ControllerArgumentsEvent($kernel, $controller, $arguments, $request, $requestType);
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\HttpKernelInterface|null $kernel
-     * @param callable|null $controller
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
-     * @param int|null $requestType
-     *
-     * @return \Symfony\Component\HttpKernel\Event\ControllerEvent
-     */
     public function createControllerEvent(
         ?HttpKernelInterface $kernel = null,
         ?callable $controller = null,
@@ -157,14 +133,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return new ControllerEvent($kernel, $controller, $request, $requestType);
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\HttpKernelInterface|null $kernel
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
-     * @param int|null $requestType
-     * @param \Throwable|null $throwable
-     *
-     * @return \Symfony\Component\HttpKernel\Event\ExceptionEvent
-     */
     public function createExceptionEvent(
         ?HttpKernelInterface $kernel = null,
         ?Request $request = null,
@@ -178,13 +146,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return new ExceptionEvent($kernel, $request, $requestType, $throwable);
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\HttpKernelInterface|null $kernel
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
-     * @param int|null $requestType
-     *
-     * @return \Symfony\Component\HttpKernel\Event\FinishRequestEvent
-     */
     public function createFinishRequestEvent(
         ?HttpKernelInterface $kernel = null,
         ?Request $request = null,
@@ -196,13 +157,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return new FinishRequestEvent($kernel, $request, $requestType);
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\HttpKernelInterface|null $kernel
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
-     * @param int|null $requestType
-     *
-     * @return \Symfony\Component\HttpKernel\Event\KernelEvent
-     */
     public function createKernelEvent(
         ?HttpKernelInterface $kernel = null,
         ?Request $request = null,
@@ -214,13 +168,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return new KernelEvent($kernel, $request, $requestType);
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\HttpKernelInterface|null $kernel
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
-     * @param int|null $requestType
-     *
-     * @return \Symfony\Component\HttpKernel\Event\RequestEvent
-     */
     public function createRequestEvent(
         ?HttpKernelInterface $kernel = null,
         ?Request $request = null,
@@ -232,14 +179,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return new RequestEvent($kernel, $request, $requestType);
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\HttpKernelInterface|null $kernel
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
-     * @param \Symfony\Component\HttpFoundation\Response|null $response
-     * @param int|null $requestType
-     *
-     * @return \Symfony\Component\HttpKernel\Event\ResponseEvent
-     */
     public function createResponseEvent(
         ?HttpKernelInterface $kernel = null,
         ?Request $request = null,
@@ -253,13 +192,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return new ResponseEvent($kernel, $request, $requestType, $response);
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\HttpKernelInterface|null $kernel
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
-     * @param \Symfony\Component\HttpFoundation\Response|null $response
-     *
-     * @return \Symfony\Component\HttpKernel\Event\TerminateEvent
-     */
     public function createTerminateEvent(
         ?HttpKernelInterface $kernel = null,
         ?Request $request = null,
@@ -292,9 +224,6 @@ abstract class AbstractEventDispatcherHelper extends Module
         return new ViewEvent($kernel, $request, $requestType, $controllerResult);
     }
 
-    /**
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     protected function getEventDispatcher(): EventDispatcherInterface
     {
         $container = $this->getContainerHelper()->getContainer();

@@ -21,9 +21,6 @@ class EventDispatcherFactory extends AbstractFactory
         return $this->getProvidedDependency(EventDispatcherDependencyProvider::PLUGINS_EVENT_DISPATCHER_PLUGINS);
     }
 
-    /**
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     public function createEventDispatcher(): EventDispatcherInterface
     {
         return new EventDispatcher();

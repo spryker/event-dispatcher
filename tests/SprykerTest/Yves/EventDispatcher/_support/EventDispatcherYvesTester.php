@@ -43,11 +43,6 @@ class EventDispatcherYvesTester extends Actor
      */
     protected const SERVICE_STOPWATCH = 'stopwatch';
 
-    /**
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     public function provideTraceableEventDispatcher(ContainerInterface $container): ContainerInterface
     {
         $eventDispatcher = new EventDispatcher();
@@ -64,9 +59,6 @@ class EventDispatcherYvesTester extends Actor
         return $container;
     }
 
-    /**
-     * @return \Spryker\Shared\EventDispatcherExtension\Dependency\Plugin\EventDispatcherPluginInterface
-     */
     public function mockEventDispatcherPlugin(): EventDispatcherPluginInterface
     {
         /** @var \Spryker\Shared\EventDispatcherExtension\Dependency\Plugin\EventDispatcherPluginInterface $eventDispatcherPluginMock */

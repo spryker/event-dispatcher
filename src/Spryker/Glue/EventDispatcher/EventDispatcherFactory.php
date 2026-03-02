@@ -39,25 +39,16 @@ class EventDispatcherFactory extends AbstractFactory
         return $this->getProvidedDependency(EventDispatcherDependencyProvider::PLUGINS_STOREFRONT_EVENT_DISPATCHER);
     }
 
-    /**
-     * @return \Spryker\Glue\EventDispatcher\Extender\EventDispatcherExtenderInterface
-     */
     public function createStorefrontEventDispatcherExtender(): EventDispatcherExtenderInterface
     {
         return new EventDispatcherExtender($this->createEventDispatcher(), $this->getStorefrontEventDispatcherPlugins());
     }
 
-    /**
-     * @return \Spryker\Glue\EventDispatcher\Extender\EventDispatcherExtenderInterface
-     */
     public function createBackendEventDispatcherExtender(): EventDispatcherExtenderInterface
     {
         return new EventDispatcherExtender($this->createEventDispatcher(), $this->getBackendEventDispatcherPlugins());
     }
 
-    /**
-     * @return \Spryker\Shared\EventDispatcher\EventDispatcherInterface
-     */
     public function createEventDispatcher(): EventDispatcherInterface
     {
         return new EventDispatcher();

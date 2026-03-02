@@ -27,11 +27,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_STOREFRONT_EVENT_DISPATCHER = 'PLUGINS_STOREFRONT_EVENT_DISPATCHER';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -42,11 +37,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addEventDispatcherPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_EVENT_DISPATCHER, function (Container $container) {
@@ -56,11 +46,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addBackendEventDispatcherPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_BACKEND_EVENT_DISPATCHER, function (Container $container) {
@@ -70,11 +55,6 @@ class EventDispatcherDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addStoreforntEventDispatcherPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_STOREFRONT_EVENT_DISPATCHER, function (Container $container) {
