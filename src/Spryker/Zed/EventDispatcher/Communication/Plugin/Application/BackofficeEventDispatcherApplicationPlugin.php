@@ -22,6 +22,8 @@ use Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher as SymfonyTracea
 class BackofficeEventDispatcherApplicationPlugin extends AbstractPlugin implements ApplicationPluginInterface
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const SERVICE_DISPATCHER = 'dispatcher';
