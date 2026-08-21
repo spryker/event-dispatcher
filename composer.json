@@ -11,6 +11,7 @@
         "spryker/symfony": "^3.2.0"
     },
     "require-dev": {
+        "spryker/application": "*",
         "spryker/code-sniffer": "*",
         "spryker/container": "*",
         "spryker/testify": "*"
